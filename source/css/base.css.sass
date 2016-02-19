@@ -1,0 +1,63 @@
+// body *
+// 	border: 1px solid rgba(150,150,150,0.35)
+
+$logo-width: 45px
+$navbar-padding: $logo-width - 30
+
+body
+	font-size: 1.75em
+
+h1, h2, h3, h4
+	text-transform: uppercase
+	font-weight: 900
+
+.slider
+	background: url('/images/example-banner.jpg')
+	background-size: cover
+	color: #fff
+	text-align: center
+	.film
+		padding: 140px
+
+.film-dark
+	background: rgba(0,0,0,0.6)
+
+.padding-y
+	padding: 15px 0
+
+
+header .navbar-collapse
+	padding-top: $navbar-padding
+
+header nav.navbar
+	margin: 0
+
+.nav-pills
+	li
+		display: inline-block
+
+.navbar-brand img
+	width: $logo-width
+
+
+section
+	&:nth-child(odd)
+		background: #ffffff
+	&:nth-child(even)
+		background: #f6f6f6
+
+
+footer
+	background: #222
+	.logo
+		text-align: center
+		opacity: 0.8
+		img
+			width: 50px
+
+.footer-nav .nav-pills
+	text-align: center
+	li
+		float: none
+		display: inline-block
+		width: 24%
