@@ -25,6 +25,18 @@ h1, h2, h3, h4
 .padding-y
 	padding: 15px 0
 
+.media
+	height: 100%
+	position: relative
+.image-container
+	height: 100%
+	max-width: 50%
+	overflow: hidden
+	img
+		height: 100%
+.image-container-left
+	position: absolute
+	left: 0
 
 header .navbar-collapse
 	padding-top: $navbar-padding
@@ -39,8 +51,15 @@ header nav.navbar
 .navbar-brand img
 	width: $logo-width
 
+.content-block
+	img
+		padding: 15px
+		width: 300px
 
 section
+	position: relative
+	z-index: 1
+	overflow: auto
 	&:nth-child(odd)
 		background: #ffffff
 	&:nth-child(even)
