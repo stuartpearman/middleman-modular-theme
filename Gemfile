@@ -11,7 +11,7 @@ gem "middleman-deploy", "~> 0.1.4"
 gem "middleman-livereload", "~> 3.1.0"
 
 # For Slim
-gem "slim", "~> 2.0.2"
+gem "slim", "~> 1.2"
 
 # For Markdown
 gem "redcarpet", "~> 3.1.1"
@@ -21,3 +21,12 @@ gem "nokogiri", "~> 1.6.1"
 
 # For feed.xml.builder/sitemap.xml.builder
 gem "builder", "~> 3.0"
+
+gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
+
+# Windows does not come with time zone data
+gem "tzinfo-data", platforms: [:mswin, :mingw, :jruby]
+
+gem "middleman-minify-html"
+
+gem 'middleman-imageoptim'

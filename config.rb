@@ -4,14 +4,17 @@
 
 # Time.zone = "UTC"
 
+activate :automatic_image_sizes
+activate :directory_indexes
+
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
-  # blog.prefix = "blog"
+  blog.prefix = "blog"
 
-  # blog.permalink = "{year}/{month}/{day}/{title}.html"
+  blog.permalink = "/{title}"
   # Matcher for blog source files
   blog.sources = "posts/{year}-{month}-{day}-{title}.html"
-  # blog.taglink = "tags/{tag}.html"
+  blog.taglink = ":tag/"
   # blog.layout = "layout"
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
@@ -20,8 +23,8 @@ activate :blog do |blog|
   # blog.day_link = "{year}/{month}/{day}.html"
   blog.default_extension = ".md"
 
-  blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
+  blog.tag_template = "blog/tag.html"
+  blog.calendar_template = "blog/calendar.html"
 
   # Enable pagination
   blog.paginate = true
@@ -35,11 +38,6 @@ page "/sitemap.xml", layout: false
 ###
 # Compass
 ###
-
-# Change Compass configuration
-# compass_config do |config|
-#   config.output_style = :compact
-# end
 
 # Change Compass configuration
 # config :development do
@@ -61,11 +59,13 @@ Slim::Engine.set_default_options :shortcut => {
   '&' => {:tag => 'input', :attr => 'type'}
 }
 
-# Markdown settings 
+# Markdown settings
 set :markdown, :tables => true, :autolink => true, :gh_blockcode => true, :fenced_code_blocks => true, :with_toc_data => true
 set :markdown_engine, :redcarpet
 
 # Per-page layout changes:
+
+page "/blog/feed.xml", layout: false
 #
 # With no layout
 # page "/path/to/file.html", layout: false
@@ -81,6 +81,16 @@ set :markdown_engine, :redcarpet
 # Proxy pages (http://middlemanapp.com/dynamic-pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", locals: {
 #  which_fake_page: "Rendering a fake page with a local variable" }
+
+# data.products.each do | key, product |
+#   if product.url? == false
+#       proxy "#{buildProductUrl(key)}index.html", "/bookstore/product-template.html",
+#       locals: {:key => key, :product => product, :sku => product.sku, :details => product.details}, :ignore => true
+#   end
+# end
+
+page "/404.html", :directory_index => false
+
 
 ###
 # Helpers
@@ -115,9 +125,12 @@ set :theme_name, false
 @analytics_account = false
 
 # Asset Settings
-set :css_dir, 'css'
-set :js_dir, 'js'
-set :images_dir, 'images'
+set :css_dir, 'assets/css'
+set :js_dir, 'assets/js'
+set :images_dir, 'assets/images'
+
+set :layouts_dir, "_layouts"
+set :partials_dir, "_partials"
 
 after_configuration do
   @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
@@ -154,6 +167,12 @@ configure :build do
   # Minify Javascript on build
   activate :minify_javascript
 
+  # Minify HTML on build
+  activate :minify_html
+
+  #minify images on build
+  activate :imageoptim
+
   # Enable cache buster
   # activate :asset_hash
 
@@ -162,17 +181,19 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+
 end
 
 ###
 # Deploy settings
 ###
 
-# ftp deployment configuration. 
-# activate :deploy do |deploy|
-#   deploy.method = :ftp
-#   deploy.host = "ftp-host"
-#   deploy.user = "ftp-user"
-#   deploy.password = "ftp-password"
-#   deploy.path = "ftp-path"
-# end
+# ftp deployment configuration.
+activate :deploy do |deploy|
+  deploy.method = :git
+  # Optional Settings
+  # deploy.remote   = 'custom-remote' # remote name or git url, default: origin
+  # deploy.branch   = 'custom-branch' # default: gh-pages
+  # deploy.strategy = :submodule      # commit strategy: can be :force_push or :submodule, default: :force_push
+  # deploy.commit_message = 'custom-message'      # commit message (can be empty), default: Automated commit at `timestamp` by middleman-deploy `version`
+end

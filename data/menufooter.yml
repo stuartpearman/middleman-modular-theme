@@ -1,0 +1,22 @@
+Home:
+ url: /
+Admissions:
+ url: "/admissions/"
+Bookstore:
+ url: "/bookstore/"
+Get Diploma:
+ url: "/jku-diploma/"
+Alumni:
+ url: "/alumni/"
+Athletics:
+ url: "/athletics/"
+News & Events:
+ url: "/news-events/"
+About Us:
+ url: "/about-jku/"
+Contact Us:
+ url: "/contact/"
+Academics:
+ url: "/academics/"
+Privacy & Return Policy:
+ url: "/privacy-and-return-policies/"

@@ -1,0 +1,23 @@
+title: Your Apple Service Provider | Capitol Macintosh
+description: We quickly fix your Apple product issues!
+keywords: Apple, fix
+author: David Smith
+favicon: /favicon.ico.png
+appletouchicon: /images/favicon.ico
+fonts:
+facebookurl: CapitolMacintosh
+twitterurl: CapMacLansing
+linkedinurl: false
+businessaddress: 1915 E Michigan Avenue, Lansing, MI
+businessphone: (517) 351-9339
+businessemail: dcore@capmac.net
+showlatesttweets: false
+shownewslettersignup: false
+logourl: /images/jku-logo-badge.png
+image: /images/jku-logo-badge.png
+companyname: Capitol Macintosh
+googleanalytics: false
+deployroot: https://www.capmac.net/
+vextiemailtoken: false
+landing_page_link: /landing-page/
+buy_now: /buy-now/

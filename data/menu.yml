@@ -1,0 +1,10 @@
+Service:
+ url: "/services/"
+Products:
+ url: "/products/"
+Tips:
+ url: "/tips/"
+About:
+ url: "/about/"
+Why Us?:
+ url: "/why-have-your-service-performed-at-capitol-macintosh/"
