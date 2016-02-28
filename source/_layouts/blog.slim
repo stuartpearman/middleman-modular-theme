@@ -10,12 +10,12 @@ html
     /[if lt IE 9]
       = javascript_include_tag "ie8"
     = stylesheet_link_tag "all"
-    = partial "partials/analytics"
+    = partial "analytics"
   body
-    = partial "partials/header"
+    = partial "header"
     .container
       .row
-        = partial "partials/sidebar"
+        = partial "sidebar"
         div.col-lg-9.col-md-9
           - unless current_article.nil?
             h1 = current_article.title
@@ -39,7 +39,7 @@ html
               - blog.articles[0...10].each do |article|
                 li
                   = link_to article.title, article
-                  span<>
+                  span
                     = article.date.strftime('%b %e')
           hr
             p.text-center
