@@ -61,7 +61,7 @@ Slim::Engine.set_default_options :shortcut => {
   '&' => {:tag => 'input', :attr => 'type'}
 }
 
-# Markdown settings 
+# Markdown settings
 set :markdown, :tables => true, :autolink => true, :gh_blockcode => true, :fenced_code_blocks => true, :with_toc_data => true
 set :markdown_engine, :redcarpet
 
@@ -115,9 +115,9 @@ set :theme_name, false
 @analytics_account = false
 
 # Asset Settings
-set :css_dir, 'css'
-set :js_dir, 'js'
-set :images_dir, 'images'
+set :css_dir, 'assets/css'
+set :js_dir, 'assets/js'
+set :images_dir, 'assets/images'
 
 after_configuration do
   @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
@@ -168,7 +168,7 @@ end
 # Deploy settings
 ###
 
-# ftp deployment configuration. 
+# ftp deployment configuration.
 # activate :deploy do |deploy|
 #   deploy.method = :ftp
 #   deploy.host = "ftp-host"

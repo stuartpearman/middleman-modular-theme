@@ -1,4 +1,4 @@
-| <!doctype html> 
+| <!doctype html>
 html
   head
     meta[charset="utf-8"]
@@ -18,15 +18,14 @@ html
         = partial "partials/sidebar"
         div.col-lg-9.col-md-9
           - unless current_article.nil?
-            h1
-              = current_article.title
+            h1 = current_article.title
             - current_article.tags.each do |tag|
               small.label.label-default
                 = tag
             hr
             p
               span.glyphicon.glyphicon-time
-              |  Posted on 
+              |  Posted on
               = current_article.date.strftime('%b %e')
             hr
             - if current_article.data.image_src
@@ -44,6 +43,6 @@ html
                     = article.date.strftime('%b %e')
           hr
             p.text-center
-              | 2014 
-              = link_to "#{site_title}", "/"          
+              | 2014
+              = link_to "#{site_title}", "/"
     = javascript_include_tag  "all"
